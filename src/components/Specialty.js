@@ -2,17 +2,15 @@ import React from "react";
 import Hogs from "../porkers_data"
 
 
-function Specialty() {
+function Specialty({ hog }) {
     return (
         <div>
-            {Hogs.map((hog, index) => (
-                <div key={index}>
-                    <p>{hog.specialty}</p>
-                    <p>{hog.greased ? "Greased" : "Not Greased"}</p>
-                    <p>{hog.weight}</p>
-                    <p>Highest Medal: {["highest medal achieved"]}</p>
-                </div>
-            ))}
+            <p>Name: {hog.name}</p>
+            <p>Specialty: {hog.specialty}</p>
+            <p>Greased: {hog.greased ? "Greased" : "Not Greased"}</p>
+            <p>Weight: {hog.weight}</p>
+            <p>Highest Medal: {["highest medal achieved"]}</p>
+                
         </div>
     );
 }
