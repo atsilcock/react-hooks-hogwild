@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import Title from "./Title.js";
 import Nav from "./Nav";
-
-import hogs from "../porkers_data";
+import Specialty from "./Specialty";
+import Hogs from "../porkers_data";
 
 function App() {
-	return (
-		<div className="App">
-			<Nav />
-		</div>
-	);
+    const [selectedHog, setSelectedHog] = useState(null);
+
+    const handleHogClick = (hog) => {
+        setSelectedHog(hog);
+    };
+
+    return (
+        <div className="App">
+            <Nav />
+            <Title hogs={Hogs} onHogClick={handleHogClick} />
+            {selectedHog && <Specialty hog={selectedHog} />}
+        </div>
+    );
 }
 
 export default App;
